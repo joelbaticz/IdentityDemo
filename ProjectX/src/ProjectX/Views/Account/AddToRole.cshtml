@@ -1,1 +1,19 @@
+﻿@model AddToRoleViewModel
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
+<h1>Add To Role</h1>
+
+<div>
+    <select asp-items="@(SelectListItem) Model.roles"></select>
+
+    @foreach (var item in Model.roles)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+        </tr>
+
+    }
+
+
+</div>

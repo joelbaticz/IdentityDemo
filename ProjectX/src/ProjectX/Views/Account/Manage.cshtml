@@ -1,0 +1,34 @@
+﻿@model ManageViewModel
+
+<h1>Manage Stuff</h1>
+
+<table>
+    @foreach(var item in Model.Users)
+    {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td><a asp-controller="Account" asp-action="AddToRole" asp-route-id="@item.Id">Add To Role</a></td>
+        </tr>
+    }
+
+</table>
+
+<!--<a asp-controller="Account" asp-action="AddRole">Add Role</a>-->
+
+<form asp-controller="Account" asp-action="Manage" method="post" role="form">
+
+
+    <div>
+        <label asp-for="Role"></label>
+        <input asp-for="Role" />
+    </div>
+
+
+    <div>
+        <input type="submit" value="Add Role" />
+    </div>
+    
+
+
+</form>
