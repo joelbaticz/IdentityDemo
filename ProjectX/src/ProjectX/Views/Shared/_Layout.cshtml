@@ -1,1 +1,39 @@
+﻿@using System.Security.Claims
 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <h1>This is the layout</h1>
+
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>Welcome: @User.Identity.Name </div>
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+            <a asp-controller="Account" asp-action="Manage">Manage</a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Register">Register</a>
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            
+        }
+
+
+
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+
+</html>
